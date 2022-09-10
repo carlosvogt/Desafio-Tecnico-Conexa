@@ -1,0 +1,11 @@
+{
+  "welcome" : "Bem vindo",
+  "makeLogin"  : "Faça login",
+  "email" : "E-mail",
+  "password" : "Senha",
+  "login" : "Entrar",
+  "logging" : "Logando",
+  "error401"  : "Atenção! Acesso não autorizado",
+  "error403" : "Atenção! Você não possui autorização",
+  "error404" : "Atenção! Caminho não encontrado"
+}

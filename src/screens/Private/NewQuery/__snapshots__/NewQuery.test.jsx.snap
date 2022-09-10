@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewQuery should render correctly 1`] = `
+<Context.Provider
+  value={
+    Object {
+      "animation": Object {
+        "scale": 1,
+      },
+      "colors": Object {
+        "accent": "#03dac4",
+        "backdrop": "rgba(0, 0, 0, 0.5)",
+        "background": "#FFF",
+        "darkGray": "#575453",
+        "disabled": "rgba(0, 0, 0, 0.26)",
+        "error": "#F44336",
+        "gray": "#D9D2D0",
+        "notification": "#f50057",
+        "onSurface": "#000000",
+        "placeholder": "rgba(0, 0, 0, 0.54)",
+        "primary": "#3558CF",
+        "secondary": "#1F137D",
+        "success": "#4CAF50",
+        "surface": "#ffffff",
+        "text": "#000000",
+        "warning": "#FF9800",
+        "whiteBlue": "#DDEFFC",
+      },
+      "dark": false,
+      "fonts": Object {
+        "light": Object {
+          "fontFamily": "System",
+          "fontWeight": "300",
+        },
+        "medium": Object {
+          "fontFamily": "System",
+          "fontWeight": "500",
+        },
+        "regular": Object {
+          "fontFamily": "System",
+          "fontWeight": "400",
+        },
+        "thin": Object {
+          "fontFamily": "System",
+          "fontWeight": "100",
+        },
+      },
+      "roundness": 4,
+    }
+  }
+>
+  <Provider
+    theme={
+      Object {
+        "animation": Object {
+          "scale": 1,
+        },
+        "colors": Object {
+          "accent": "#03dac4",
+          "backdrop": "rgba(0, 0, 0, 0.5)",
+          "background": "#FFF",
+          "darkGray": "#575453",
+          "disabled": "rgba(0, 0, 0, 0.26)",
+          "error": "#F44336",
+          "gray": "#D9D2D0",
+          "notification": "#f50057",
+          "onSurface": "#000000",
+          "placeholder": "rgba(0, 0, 0, 0.54)",
+          "primary": "#3558CF",
+          "secondary": "#1F137D",
+          "success": "#4CAF50",
+          "surface": "#ffffff",
+          "text": "#000000",
+          "warning": "#FF9800",
+          "whiteBlue": "#DDEFFC",
+        },
+        "dark": false,
+        "fonts": Object {
+          "light": Object {
+            "fontFamily": "System",
+            "fontWeight": "300",
+          },
+          "medium": Object {
+            "fontFamily": "System",
+            "fontWeight": "500",
+          },
+          "regular": Object {
+            "fontFamily": "System",
+            "fontWeight": "400",
+          },
+          "thin": Object {
+            "fontFamily": "System",
+            "fontWeight": "100",
+          },
+        },
+        "roundness": 4,
+      }
+    }
+  >
+    <NewQuery />
+  </Provider>
+</Context.Provider>
+`;

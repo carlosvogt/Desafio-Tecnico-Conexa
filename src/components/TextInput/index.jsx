@@ -1,0 +1,187 @@
+/* eslint-disable sonarjs/cognitive-complexity */
+/* eslint-disable no-unused-vars */
+import React, { forwardRef, useState, useEffect, useRef } from 'react';
+import { StyleSheet, View } from 'react-native';
+import PropTypes from 'prop-types';
+import { useTheme } from '@theme';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import masks from '../../utils/masks';
+import {
+  HelperText,
+  TextInput as PaperTextInput,
+} from '../third-party-components';
+
+const TextInput = forwardRef(
+  (
+    {
+      name,
+      touched,
+      errorMessage,
+      onBlur,
+      label,
+      optional,
+      icon,
+      onPressIcon,
+      testIDIcon,
+      onChangeText,
+      maskType,
+      iconColor,
+      clearButtonMode,
+      style,
+      theme,
+      inputRef,
+      ...rest
+    },
+    ref,
+  ) => {
+    const { colors } = useTheme();
+    const { t } = useTranslation();
+    let varTimeout;
+    const mounted = useRef(false);
+    const hasError = Boolean(errorMessage);
+    const [isFocused, setIsFocused] = useState(false);
+
+    const styles = StyleSheet.create({
+      container: {
+        width: '100%',
+        marginVertical: 4,
+      },
+      textInput: {
+        backgroundColor: colors.whiteBlue,
+      },
+    });
+
+    const canRenderClearButton =
+      clearButtonMode === 'always' &&
+      rest.value &&
+      rest.value.length > 0 &&
+      isFocused &&
+      (icon === '' || icon === null);
+
+    useEffect(() => {
+      mounted.current = true;
+      return () => {
+        mounted.current = false;
+      };
+    });
+
+    const clearFunction = () => {
+      clearTimeout(varTimeout);
+      onChangeText('');
+      setIsFocused(false);
+    };
+
+    const renderClearButton = () => {
+      if (canRenderClearButton) {
+        return (
+          <PaperTextInput.Icon
+            name="close"
+            onPress={() => clearFunction()}
+            color={colors.primary}
+          />
+        );
+      }
+      return null;
+    };
+
+    const onBlurComponent =
+      (onBlurParam = () => {}) =>
+      (event) => {
+        onBlurParam(event);
+        if (isFocused) {
+          varTimeout = setTimeout(() => {
+            if (mounted.current) {
+              setIsFocused(false);
+            }
+          }, 2000);
+        }
+      };
+
+    const onChangeTextComponent = (event) => {
+      if (!isFocused) {
+        setIsFocused(true);
+      }
+      onChangeText(maskType ? masks[maskType](event) : event);
+    };
+
+    return (
+      <View style={styles.container}>
+        <PaperTextInput
+          {...rest}
+          label={optional ? t('optionalField', { fieldLabel: label }) : label}
+          ref={inputRef}
+          mode="flat"
+          error={hasError}
+          onBlur={onBlurComponent(onBlur)}
+          onFocus={() => setIsFocused(true)}
+          style={[styles.textInput, style]}
+          activeUnderlineColor={colors.primary}
+          theme={{
+            colors: {
+              primary: colors.primary,
+              text: colors.primary,
+              placeholder: colors.darkGray,
+              error: colors.error,
+            },
+          }}
+          onChangeText={onChangeTextComponent}
+          right={
+            icon !== '' ? (
+              <PaperTextInput.Icon
+                testID={testIDIcon}
+                name={icon}
+                onPress={onPressIcon}
+                color={iconColor || colors.primary}
+                size={30}
+              />
+            ) : (
+              renderClearButton()
+            )
+          }
+        />
+
+        {hasError && (
+          <HelperText type="error" style={{ color: colors.error }}>
+            {errorMessage}
+          </HelperText>
+        )}
+      </View>
+    );
+  },
+);
+
+TextInput.displayName = 'TextInput';
+
+TextInput.propTypes = {
+  name: PropTypes.string.isRequired,
+  touched: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  errorMessage: PropTypes.string,
+  onBlur: PropTypes.func,
+  label: PropTypes.string,
+  optional: PropTypes.bool,
+  icon: PropTypes.string,
+  onPressIcon: PropTypes.func,
+  testIDIcon: PropTypes.string,
+  iconColor: PropTypes.string,
+  clearButtonMode: PropTypes.string,
+  style: PropTypes.object,
+  theme: PropTypes.bool,
+};
+
+TextInput.defaultProps = {
+  clearButtonMode: 'always',
+  style: {},
+  theme: false,
+  touched: false,
+  errorMessage: '',
+  onBlur: () => {},
+  label: '',
+  optional: false,
+  icon: '',
+  onPressIcon: () => {},
+  testIDIcon: 'toggle-icon-button',
+  iconColor: '',
+};
+
+export default TextInput;

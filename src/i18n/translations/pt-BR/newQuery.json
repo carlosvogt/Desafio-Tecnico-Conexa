@@ -1,0 +1,14 @@
+{
+  "newQuery" : "Nova consulta",
+  "name" : "Nome",
+  "observation" : "Observação",
+  "date" : "Data",
+  "hour" : "Hora",
+  "schedule" : "Agendar",
+  "scheduling" : "Agendando",
+  "success":"Sucesso! Consulta agendada",
+  "error500" : "Atenção! O formato da data esta incorreto",
+  "error401"  : "Atenção! Acesso não autorizado",
+  "error403" : "Atenção! Você não possui autorização",
+  "error404" : "Atenção! Caminho não encontrado"
+}

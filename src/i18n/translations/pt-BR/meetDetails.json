@@ -1,0 +1,15 @@
+{
+  "details" : "Detalhes da consulta",
+  "dateTime" : "Data e hora:",
+  "id" : "ID:",
+  "patient" : "Paciente:",
+  "observation" : "Observação:",
+  "doctorDetails" : "Detalhes do médico",
+  "doctor" : "Médico:",
+  "email" : "E-mail:",
+  "null" : "Não informado",
+  "error401"  : "Atenção! Acesso não autorizado",
+  "error403" : "Atenção! Você não possui autorização",
+  "error404" : "Atenção! Caminho não encontrado",
+  "empty" : "Atenção, os dados não puderam ser carregados, tente novamente mais tarde."
+}

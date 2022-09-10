@@ -1,0 +1,6 @@
+{
+  "required": "Este campo é obrigatório",
+  "email" : "Favor informe um e-mail válido",
+  "date" : "Favor informe uma data válida",
+  "hour" : "Favor informe uma hora válida"
+}
