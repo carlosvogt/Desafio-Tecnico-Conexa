@@ -1,0 +1,17 @@
+{
+  "signOut" : "Sair",
+  "help" : "Ajuda",
+  "queries" : "Consultas",
+  "qtdQueries" : "consultas agendadas",
+  "scheduleQuery" : "Agendar consulta",
+  "attend" : "Atender",
+  "ok" : "Ok",
+  "goOut" : "Sair",
+  "cancel" : "Cancelar",
+  "description" : "Você deseja realmente sair da conta?",
+  "attention" : "Atenção!",
+  "error401"  : "Atenção! Acesso não autorizado",
+  "error403" : "Atenção! Você não possui autorização",
+  "error404" : "Atenção! Caminho não encontrado",
+  "helpText" : "A utilização do aplicativo é muito simples! A tela home possui uma lista de suas consultas agendadas, ao clicar no botão Atender, você é direcionado a tela de detalhes da consulta. Já o botão Agendar consulta, serve para adicionar uma consulta a sua agenda."
+}
